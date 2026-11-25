@@ -101,8 +101,9 @@ document.addEventListener("keydown", function(event) {
 // ===================================
 
 function showScreen(screenId) {
-    // Block the birthday surprise page until Dec 3, 12:00am
-    if (screenId === "birthdayScreen" && !isBirthdayReached()) {
+    // Block all pages after the countdown (welcome) until Dec 3, 12:00am
+    const lockedScreens = ["storyScreen", "memoriesScreen", "letterScreen", "birthdayScreen"];
+    if (lockedScreens.includes(screenId) && !isBirthdayReached()) {
         return;
     }
 
