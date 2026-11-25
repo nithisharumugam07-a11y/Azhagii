@@ -7,9 +7,13 @@
 // CHANGE THIS TO YOUR SECRET 4-DIGIT PIN
 const SECRET_PIN = "0307";
 
-// Birthday: December 3, 2026
+// Birthday: December 3, 2026, 12:00am
 // JavaScript months start from 0, so December = 11.
 const BIRTHDAY_DATE = new Date(2026, 11, 3, 0, 0, 0);
+
+function isBirthdayReached() {
+    return new Date() >= BIRTHDAY_DATE;
+}
 
 let enteredPin = "";
 const MAX_PIN_LENGTH = 4;
@@ -97,6 +101,11 @@ document.addEventListener("keydown", function(event) {
 // ===================================
 
 function showScreen(screenId) {
+    // Block the birthday surprise page until Dec 3, 12:00am
+    if (screenId === "birthdayScreen" && !isBirthdayReached()) {
+        return;
+    }
+
     const screens = document.querySelectorAll(".screen");
 
     screens.forEach(screen => {
