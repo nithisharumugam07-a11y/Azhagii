@@ -258,6 +258,16 @@ button {
     margin-bottom: 20px;
 }
 
+.countdown-wait {
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+}
+
 .countdown {
     display: flex;
     justify-content: center;
