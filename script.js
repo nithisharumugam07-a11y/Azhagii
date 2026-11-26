@@ -9,7 +9,7 @@ const SECRET_PIN = "0307";
 
 // Birthday: December 3, 2026, 12:00am
 // JavaScript months start from 0, so December = 11.
-const BIRTHDAY_DATE = new Date(2026, 11, 3, 0, 0, 0);
+const BIRTHDAY_DATE = new Date(2026, 10, 3, 0, 0, 0);
 
 function isBirthdayReached() {
     return new Date() >= BIRTHDAY_DATE;
