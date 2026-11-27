@@ -54,7 +54,7 @@ function updatePinDots() {
 
 function unlockWebsite() {
     if (enteredPin === SECRET_PIN) {
-        showScreen("birthdayScreen");
+        showScreen("welcomeScreen");
         startCountdown();
         createFloatingHearts();
 
