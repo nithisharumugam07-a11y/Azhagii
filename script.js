@@ -152,8 +152,7 @@ function updateCountdown() {
 
         clearInterval(window.countdownInterval);
 
-        // Auto-open the next page (final birthday surprise) when countdown hits Dec 3, 12:00am
-        showScreen("birthdayScreen");
+        // Do not auto-open the birthday page; the user navigates via the buttons.
 
         return;
     }
