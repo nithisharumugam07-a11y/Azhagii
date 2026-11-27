@@ -15,6 +15,10 @@ let enteredPin = "";
 const MAX_PIN_LENGTH = 4;
 let wrongAttempts = 0;
 
+// Pages beyond the welcome screen stay locked until the countdown reaches 0.
+let countdownUnlocked = false;
+const LOCKED_SCREENS = ["storyScreen", "memoriesScreen", "letterScreen", "birthdayScreen"];
+
 
 // ===================================
 // 1. SECRET PIN SYSTEM
@@ -97,6 +101,11 @@ document.addEventListener("keydown", function(event) {
 // ===================================
 
 function showScreen(screenId) {
+    // Block navigation to the locked pages until the countdown hits zero.
+    if (!countdownUnlocked && LOCKED_SCREENS.includes(screenId)) {
+        return;
+    }
+
     const screens = document.querySelectorAll(".screen");
 
     screens.forEach(screen => {
@@ -151,6 +160,9 @@ function updateCountdown() {
             "TODAY IS YOUR SPECIAL DAY! HAPPY BIRTHDAY ❤️";
 
         clearInterval(window.countdownInterval);
+
+        // Countdown reached zero: unlock the remaining pages.
+        countdownUnlocked = true;
 
         // Do not auto-open the birthday page; the user navigates via the buttons.
 
